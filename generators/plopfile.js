@@ -17,17 +17,17 @@ module.exports = (plop) => {
       {
         type: "add",
         path: "../src/{{path}}/{{pascalCase name}}/index.tsx",
-        templateFile: "../templates/index.tsx.hbs",
+        templateFile: "./templates/index.tsx.hbs",
       },
       {
         type: "add",
         path: "../src/{{path}}/{{pascalCase name}}/test.tsx",
-        templateFile: "../templates/test.tsx.hbs",
+        templateFile: "./templates/test.tsx.hbs",
       },
       {
         type: "add",
         path: "../src/{{path}}/{{pascalCase name}}/index.stories.tsx",
-        templateFile: "../templates/index.stories.tsx.hbs",
+        templateFile: "./templates/index.stories.tsx.hbs",
       },
     ],
   });
