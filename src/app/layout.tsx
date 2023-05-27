@@ -1,3 +1,4 @@
+import { BreakpointsProvider } from "@/hooks/use-breakpoints";
 import "./globals.css";
 import { Poppins } from "next/font/google";
 
@@ -19,7 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} font-poppins`}>{children}</body>
+      <body className={`${roboto.variable} font-poppins`}>
+        <BreakpointsProvider>{children}</BreakpointsProvider>
+      </body>
     </html>
   );
 }
