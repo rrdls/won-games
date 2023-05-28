@@ -12,11 +12,12 @@ export interface Breakpoints {
   md: boolean;
   lg: boolean;
   xl: boolean;
+  xl2: boolean;
 }
 
 const BreakpointsContext = createContext<Breakpoints | {}>({});
 
-interface BreakpointsProviderProps {
+export interface BreakpointsProviderProps {
   children: React.ReactNode;
 }
 
@@ -26,9 +27,10 @@ function BreakpointsProvider({ children }: BreakpointsProviderProps) {
   const md = useMediaQuery({ query: `(max-width: ${screens.md.max})` });
   const lg = useMediaQuery({ query: `(max-width: ${screens.lg.max})` });
   const xl = useMediaQuery({ query: `(max-width: ${screens.xl.max})` });
+  const xl2 = useMediaQuery({ query: `(max-width: ${screens["2xl"].max})` });
 
   return (
-    <BreakpointsContext.Provider value={{ sm, md, lg, xl }}>
+    <BreakpointsContext.Provider value={{ sm, md, lg, xl, xl2 }}>
       {children}
     </BreakpointsContext.Provider>
   );
