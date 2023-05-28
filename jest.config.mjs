@@ -10,6 +10,7 @@ const createJestConfig = nextJest({
 const config = {
   // Add more setup options before each test is run
   setupFilesAfterEnv: ["<rootDir>/.jest/jest.setup.js"],
+  moduleNameMapper: { "^@/(.+)$": "<rootDir>/src/$1" },
   testEnvironment: "jest-environment-jsdom",
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.ts(x)", "!src/**/*.stories.ts(x)"],
