@@ -3,11 +3,11 @@ import { render, screen } from "@testing-library/react";
 import { Logo, SVGProps } from ".";
 import { BreakpointsProvider } from "@/hooks/use-breakpoints";
 
-let mock = jest.fn();
+let useBreakpointsMock = jest.fn();
 
 jest.mock("@/hooks/use-breakpoints", () => ({
   ...jest.requireActual("@/hooks/use-breakpoints"),
-  useBreakpoints: () => mock(),
+  useBreakpoints: () => useBreakpointsMock(),
 }));
 
 const renderComponent = (props: SVGProps) => {
@@ -49,7 +49,7 @@ describe("<Logo/>", () => {
   });
 
   it("should render a normal logo without text if hideOnMobile and md are true", () => {
-    mock.mockReturnValue({
+    useBreakpointsMock.mockReturnValue({
       md: true,
       sm: false,
       lg: false,
@@ -65,7 +65,7 @@ describe("<Logo/>", () => {
   });
 
   it("should render a normal logo with text if hideOnMobile is false and md is true", () => {
-    mock.mockReturnValue({
+    useBreakpointsMock.mockReturnValue({
       md: true,
       sm: false,
       lg: false,
