@@ -29,8 +29,7 @@ export interface SVGProps
 
 const Logo = forwardRef<SVGSVGElement, SVGProps>(
   ({ className, variant, size, hideOnMobile = false, ...props }, ref) => {
-    const { md } = useBreakpoints() as Breakpoints;
-
+    const breakpoints = useBreakpoints() as Breakpoints;
     return (
       <svg
         role="img"
@@ -41,7 +40,7 @@ const Logo = forwardRef<SVGSVGElement, SVGProps>(
           "md:w-[58px] h-[45px]": hideOnMobile,
         })}
         ref={ref}
-        viewBox={md && hideOnMobile ? "0 0 60 45" : "0 0 158 48"}
+        viewBox={breakpoints?.md && hideOnMobile ? "0 0 60 45" : "0 0 158 48"}
         {...props}
       >
         <path
