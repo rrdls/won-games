@@ -18,4 +18,31 @@ const meta: Meta<typeof Logo> = {
 export default meta;
 type Story = StoryObj<typeof Logo>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: {
+    variant: "black",
+  },
+};
+
+export const Normal: Story = {
+  args: {
+    size: "normal",
+  },
+};
+export const Large: Story = {
+  args: {
+    size: "large",
+  },
+};
+
+export const White: Story = {
+  args: {
+    variant: "white",
+  },
+};
+
+export const NoTextOnMobile: Story = {
+  args: {
+    hideOnMobile: true,
+  },
+};
