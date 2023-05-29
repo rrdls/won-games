@@ -18,6 +18,12 @@ module.exports = {
       sm: { max: "639px" },
     },
     extend: {
+      backgroundImage: {
+        button:
+          "linear-gradient(178.59deg, #FF5F5F -14.51%, #F062C0 102.86%, #F23131 102.86%)",
+        buttonHover:
+          "linear-gradient(180deg, #E35565 0%, #D958A6 100%), linear-gradient(178.59deg, #FF5F5F -14.51%, #F062C0 102.86%, #F23131 102.86%);",
+      },
       fontFamily: {
         poppins: "var(--font-poppins)",
       },
