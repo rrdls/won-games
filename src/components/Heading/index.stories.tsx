@@ -15,3 +15,22 @@ export const Default: Story = {
     children: "Heading",
   },
 };
+
+export const White: Story = {
+  args: {
+    children: "Heading",
+    variant: "white",
+  },
+};
+export const Left: Story = {
+  args: {
+    children: "Heading",
+    linePosition: "left",
+  },
+};
+export const Bottom: Story = {
+  args: {
+    children: "Heading",
+    linePosition: "bottom",
+  },
+};
