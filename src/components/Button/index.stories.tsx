@@ -20,6 +20,10 @@ export const Default: Story = {
 export const WithIcon: Story = {
   args: {
     children: "Button",
-    iconLeft: <ShoppingCart className="" />,
+    iconLeft: <ShoppingCart />,
   },
+};
+
+export const OnlyIcon: Story = {
+  args: { children: "", iconLeft: <ShoppingCart /> },
 };

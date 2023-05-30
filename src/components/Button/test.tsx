@@ -9,6 +9,8 @@ describe("<Button/>", () => {
     expect(button).toHaveClass(
       "py-[8px] px-[30px] text-xs [&>svg]:w-[15px] [&>svg]:h-[15px]"
     );
+    const children = screen.getByTestId("children");
+    expect(children).toHaveClass("ml-[8px] mr-[8px]");
   });
 
   it("should render a medium button when size prop is 'medium'", () => {
@@ -67,11 +69,12 @@ describe("<Button/>", () => {
 
   it("should render a button only with icon if children not exists", () => {
     render(<Button iconRight={<ShoppingCart data-testid="icon" />} />);
-    const children = screen.getByTestId("children").textContent;
+    const children = screen.getByTestId("children");
     const button = screen.getByTestId("button");
     const icon = screen.getByTestId("icon");
     expect(icon).toBeInTheDocument();
-    expect(children).toEqual("");
+    expect(children.textContent).toEqual("");
+    expect(children).not.toHaveClass("ml-[8px] mr-[8px]");
     expect(button).toHaveClass("px-[8px] py-[6px]");
   });
 });
