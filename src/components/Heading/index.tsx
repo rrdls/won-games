@@ -7,9 +7,9 @@ const headingVariants = cva(
   {
     variants: {
       linePosition: {
-        left: "before:content-[''] before:w-[7px] before:h-[31px] before:bg-secondary before:absolute before:left-[-12px]",
+        left: "before:content-[''] before:w-[0.7rem] before:h-[3.1rem] before:bg-secondary before:absolute before:left-[-1.2rem]",
         bottom:
-          "before:content-[''] before:w-[49px] before:h-[5px] before:bg-primary before:absolute before:left-0 before:bottom-[-10px]",
+          "before:content-[''] before:w-[4.9rem] before:h-[0.5rem] before:bg-primary before:absolute before:left-0 before:bottom-[-1.0rem]",
       },
       variant: {
         black: "text-black",
