@@ -7,17 +7,17 @@ describe("<Button/>", () => {
     render(<Button size="small">Button</Button>);
     const button = screen.getByTestId("button");
     expect(button).toHaveClass(
-      "py-[8px] px-[30px] text-xs [&>svg]:w-[15px] [&>svg]:h-[15px]"
+      "py-[0.7rem] px-[3.0rem] text-xs [&>svg]:w-[1.5rem] [&>svg]:h-[1.5rem]"
     );
     const children = screen.getByTestId("children");
-    expect(children).toHaveClass("ml-[8px] mr-[8px]");
+    expect(children).toHaveClass("ml-[0.8rem] mr-[0.8rem]");
   });
 
   it("should render a medium button when size prop is 'medium'", () => {
     render(<Button size="medium">Button</Button>);
     const button = screen.getByTestId("button");
     expect(button).toHaveClass(
-      "py-[10px] px-[32px] text-sm [&>svg]:w-[16px] [&>svg]:h-[16px]"
+      "py-[1.0rem] px-[3.0rem] text-sm [&>svg]:w-[1.6rem] [&>svg]:h-[1.6rem]"
     );
   });
 
@@ -25,7 +25,7 @@ describe("<Button/>", () => {
     render(<Button size="large">Button</Button>);
     const button = screen.getByTestId("button");
     expect(button).toHaveClass(
-      "py-[13px] px-[52px] text-base [&>svg]:w-[20px] [&>svg]:h-[20px]"
+      "py-[1.3rem] px-[5.2rem] text-base [&>svg]:w-[2.0rem] [&>svg]:h-[2.0rem]"
     );
   });
 
@@ -75,6 +75,6 @@ describe("<Button/>", () => {
     expect(icon).toBeInTheDocument();
     expect(children.textContent).toEqual("");
     expect(children).not.toHaveClass("ml-[8px] mr-[8px]");
-    expect(button).toHaveClass("px-[8px] py-[6px]");
+    expect(button).toHaveClass("px-[0.8rem] py-[0.6rem]");
   });
 });
