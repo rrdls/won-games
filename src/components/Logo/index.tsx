@@ -11,8 +11,8 @@ const logoVariants = cva("", {
       white: "text-white",
     },
     size: {
-      normal: "w-[126px] h-[38px]",
-      large: "w-[200px] h-[60px]",
+      normal: "w-[12.6rem] h-[3.8rem]",
+      large: "w-[20.0rem] h-[6.0rem]",
     },
   },
   defaultVariants: {
@@ -37,7 +37,7 @@ const Logo = forwardRef<SVGSVGElement, SVGProps>(
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className={cn(logoVariants({ variant, size, className }), {
-          "md:w-[58px] h-[45px]": hideOnMobile,
+          "md:w-[5.8rem] h-[4.5rem]": hideOnMobile,
         })}
         ref={ref}
         viewBox={breakpoints?.md && hideOnMobile ? "0 0 60 45" : "0 0 158 48"}
