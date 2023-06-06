@@ -52,6 +52,15 @@ module.exports = {
       sm: { max: "639px" },
     },
     extend: {
+      animation: {
+        menuLinkAnimation: "hoverAnimation 0.2s forwards",
+      },
+      keyframes: {
+        hoverAnimation: {
+          from: { width: 0, left: "50%" },
+          to: { width: "100%", left: 0 },
+        },
+      },
       backgroundImage: {
         button:
           "linear-gradient(178.59deg, #FF5F5F -14.51%, #F062C0 102.86%, #F23131 102.86%)",
