@@ -2,7 +2,7 @@
 import React, { forwardRef, HTMLAttributes } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import { Breakpoints, useBreakpoints } from "@/hooks/use-breakpoints";
+import { useBreakpoints } from "@/hooks/use-breakpoints";
 
 const logoVariants = cva("", {
   variants: {
@@ -29,7 +29,8 @@ export interface SVGProps
 
 const Logo = forwardRef<SVGSVGElement, SVGProps>(
   ({ className, variant, size, hideOnMobile = false, ...props }, ref) => {
-    const breakpoints = useBreakpoints() as Breakpoints;
+    const breakpoints = useBreakpoints();
+
     return (
       <svg
         role="img"

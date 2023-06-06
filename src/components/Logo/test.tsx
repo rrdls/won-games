@@ -1,7 +1,7 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { Logo, SVGProps } from ".";
-import { BreakpointsProvider } from "@/hooks/use-breakpoints";
+import { BreakpointsProvider, useBreakpoints } from "@/hooks/use-breakpoints";
 
 let useBreakpointsMock = jest.fn();
 
@@ -48,7 +48,7 @@ describe("<Logo/>", () => {
     expect(logoSVG).toHaveClass("w-[20.0rem] h-[6.0rem]");
   });
 
-  it("should render a normal logo without text if hideOnMobile and md are true", () => {
+  it("should render a normal logo without text if hideOnMobile and md are true", async () => {
     useBreakpointsMock.mockReturnValue({
       md: true,
       sm: false,
@@ -56,7 +56,10 @@ describe("<Logo/>", () => {
       xl: false,
       xl2: false,
     });
+
     renderComponent({ hideOnMobile: true });
+
+    expect(useBreakpointsMock).toHaveBeenCalledTimes(1);
     const logoSVG = screen.getByLabelText("Won Games");
     const path = screen.getByTestId("text");
     expect(path).toHaveClass("md:hidden");
