@@ -56,4 +56,20 @@ describe("<Menu/>", () => {
     expect(screen.queryByText(/log in now/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/sign up/i)).not.toBeInTheDocument();
   });
+
+  it("should show username when logged in", () => {
+    const userName = "Renato";
+    renderComponent({ userName });
+    expect(screen.getByTestId("userArea")).toHaveClass("md:hidden");
+    expect(screen.getByText(RegExp(`${userName}`, "i"))).toBeInTheDocument();
+    expect(screen.getByLabelText(/user avatar/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/open dropdown menu/i)).toBeInTheDocument();
+  });
+
+  it("should show sign in button when logged out", () => {
+    renderComponent();
+    const button = screen.getByRole("button", { name: /sign in/i });
+    expect(button).toHaveClass("md:hidden");
+    expect(button).toBeInTheDocument();
+  });
 });

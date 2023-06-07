@@ -8,6 +8,7 @@ import {
   UserCircle2Icon,
   AlignLeftIcon,
   XIcon,
+  ChevronDownIcon,
 } from "lucide-react";
 import { Button } from "../Button";
 import Link from "next/link";
@@ -61,12 +62,26 @@ const Menu = ({ userName }: MenuProps) => {
         />
 
         {!!userName ? (
-          <div className="flex gap-[1.5rem] items-center md:hidden">
-            <UserCircle2Icon className="w-[2.4rem] h-[2.4rem] text-white cursor-pointer" />
-            <p className="text-white text-base capitalize">{userName}</p>
+          <div className="flex items-center md:hidden" data-testid="userArea">
+            <UserCircle2Icon
+              className="w-[2.4rem] h-[2.4rem] text-white cursor-pointer mr-[1.4rem]"
+              aria-label="User Avatar"
+            />
+            <p className="text-white text-base font-medium capitalize">
+              {userName}
+            </p>
+            <ChevronDownIcon
+              className="w-[2.4rem] h-[2.4rem] text-gray cursor-pointer ml-[0.9rem]"
+              aria-label="Open Dropdown Menu"
+            />
           </div>
         ) : (
-          <Button size="medium" className="md:hidden">
+          <Button
+            size="medium"
+            className="md:hidden"
+            role="button"
+            aria-label="Sign In Button"
+          >
             Sign In
           </Button>
         )}
