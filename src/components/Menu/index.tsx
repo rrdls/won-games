@@ -13,9 +13,11 @@ import { Button } from "../Button";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-const Menu = () => {
-  const login = false;
+interface MenuProps {
+  userName?: string;
+}
 
+const Menu = ({ userName }: MenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -58,10 +60,10 @@ const Menu = () => {
           className="w-[2.4rem] h-[2.4rem] text-white cursor-pointer"
         />
 
-        {login ? (
+        {!!userName ? (
           <div className="flex gap-[1.5rem] items-center md:hidden">
             <UserCircle2Icon className="w-[2.4rem] h-[2.4rem] text-white cursor-pointer" />
-            <p className="text-white">Renato</p>
+            <p className="text-white text-base capitalize">{userName}</p>
           </div>
         ) : (
           <Button size="medium" className="md:hidden">
@@ -107,20 +109,51 @@ const Menu = () => {
               Explore
             </Link>
           </li>
+          {!!userName && (
+            <>
+              <li className="">
+                <Link
+                  href=""
+                  className={cn(
+                    "relative no-underline text-center after:absolute hover:after:content-[''] hover:after:block hover:after:h-[0.3rem] hover:after:bg-primary hover:after:animate-menuLinkAnimation"
+                  )}
+                >
+                  My account
+                </Link>
+              </li>
+              <li className="">
+                <Link
+                  href=""
+                  className={cn(
+                    "relative no-underline text-center after:absolute hover:after:content-[''] hover:after:block hover:after:h-[0.3rem] hover:after:bg-primary hover:after:animate-menuLinkAnimation"
+                  )}
+                >
+                  Wishlist
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
 
-        <div className="flex flex-col items-center gap-[12px]">
-          <Button size="large" fullWidth>
-            Log in now
-          </Button>
-          <span className="font-medium text-xs">or</span>
-          <Link
-            href=""
-            className="text-primary font-medium text-base border-b-[0.2rem] border-primary w-fit"
+        {!userName ? (
+          <div
+            className="flex flex-col items-center gap-[12px]"
+            data-testid="registerBox"
           >
-            Sign up
-          </Link>
-        </div>
+            <Button size="large" fullWidth>
+              Log in now
+            </Button>
+            <span className="font-medium text-xs">or</span>
+            <Link
+              href=""
+              className="text-primary font-medium text-base border-b-[0.2rem] border-primary w-fit"
+            >
+              Sign up
+            </Link>
+          </div>
+        ) : (
+          <div />
+        )}
       </nav>
     </menu>
   );

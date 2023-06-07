@@ -52,6 +52,20 @@ module.exports = {
       sm: { max: "639px" },
     },
     extend: {
+      zIndex: {
+        deep: -9999,
+        behind: -1,
+        auto: "auto",
+        base: 0,
+        docked: 10,
+        sticky: 100,
+        overlay: 1000,
+        modal: 2000,
+        dropdown: 3000,
+        popover: 4000,
+        tooltip: 5000,
+        toast: 6000,
+      },
       animation: {
         menuLinkAnimation: "hoverAnimation 0.2s forwards",
       },
